@@ -89,9 +89,6 @@ public class AdminServlet extends HttpServlet {
 				case "SUBJECTS":
 					subjectList(request, response);
 					break;
-				case "Student_List":
-                    classStudentsList(request, response);
-					break;
 				case "CLASSES":
 					classesList(request,response);
 				case "LOGIN":
@@ -157,29 +154,7 @@ public class AdminServlet extends HttpServlet {
 	}
 
 	
-	public void classStudentsList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		int classId = Integer.parseInt(request.getParameter("classID"));
-		String teachName = request.getParameter("teacher_Name");
-		String subName = request.getParameter("subject_Name");
-		int techid =Integer.parseInt(request.getParameter("teacher_id"));
-		int subid =Integer.parseInt(request.getParameter("subject_id"));
-
-		// get subjects from db util
-		List<Student> students = operations.loadClassStudents(classId);
-
-		// add subjects to the request
-		request.setAttribute("CLASS_ID", classId);
-		request.setAttribute("StudentList", students);
-		request.setAttribute("SUB_NAME", subName);
-
-
-		// send it to the jSP view page
-		RequestDispatcher dispatcher = request.getRequestDispatcher("classesStudentsList.jsp");
-		dispatcher.forward(request, response);
-
-	}
-	
 	
 
 	
