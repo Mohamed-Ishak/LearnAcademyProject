@@ -2,7 +2,7 @@
   
 <div class="sidenav">
 	<h3 id="logo">
-		Administrator Section
+		Administrator 
 	</h3>
 	
 	
